@@ -41,6 +41,6 @@ app.post('/oauth/token', (req, res) => {
   });
 });
 
-const server = app.listen(3000, () => {
+const server = app.listen(process.env.PORT || 3000, () => {
   console.info('Express server listening on port ' + server.address().port);
 });
