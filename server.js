@@ -6,16 +6,16 @@ const jwt = require('jwt-simple');
 const app = express();
 const jwtSecret = 'foobar';
 
-app.get('/healthcheck', (req, res) => {
+app.get('/healthcheck', (req, res) =>
   res.json({
     ok: true,
     timestamp: (new Date()).getTime()
-  });
-});
+  })
+);
 
-app.get('/authorize', (req, res) => {
-  res.redirect(`${req.query.redirect_uri}?code=mzgybGPAr4tGi9fd`);
-});
+app.get('/favicon.ico', (req, res) => res.status(204));
+
+app.get('/authorize', (req, res) => res.redirect(`${req.query.redirect_uri}?code=mzgybGPAr4tGi9fd`));
 
 app.post('/oauth/token', (req, res) => {
   const data = {
