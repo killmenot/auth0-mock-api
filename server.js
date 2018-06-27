@@ -37,7 +37,7 @@ app.post('/oauth/token', (req, res) => {
   };
 
   res.json({
-    id_token: utils.jwtEncode(data, jwtSecret)
+    id_token: jwt.encode(data, jwtSecret)
   });
 });
 
